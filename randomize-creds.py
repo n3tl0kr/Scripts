@@ -1,3 +1,11 @@
+############################################################################
+# Title: Randomize-Creds
+# Author: Paul Goffar @n3tl0kr
+# Scope:  Used to combine lists of usernames and passwords to create
+#         random iterations of base64 strings.  Helpful for bruteforcing
+#         http basic auth.
+############################################################################
+
 import argparse
 import base64
 
