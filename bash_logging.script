@@ -1,0 +1,36 @@
+#####################################################################################################
+# DESCRIPTION: This is just a very simple logging function 
+#              because I'm lazy and want to have a repeatable
+#              and nice looking log output. It took me a solid
+#              20 minutes to figure out exactly what i wanted so here. :) 
+#####################################################################################################
+
+LOGDIR=/tmp/cce_audit_logs/ #CHANGE THIS
+
+if [[ -d $LOGDIR ]]; then
+  echo "$LOGDIR found, continuing..."
+else
+  mkdir -p $LOGDIR
+  echo "$LOGDIR created, continuing..."
+fi
+
+function loggy(){
+   while read data; do
+    TIMESTAMP=$(date '+%d/%m/%Y %H:%M:%S')
+    LOG="$LOGDIR$(date +'%Y%m%d')_smartcard.log" #CHANGE THIS
+    echo "$(hostname):$TIMESTAMP -> $data" >> $LOG
+  done
+}
+
+### EXAMPLE ###
+echo "Starting Script v1.0" | loggy
+echo "Script ran out of gas" | loggy
+ping www.google.com | loggy
+
+### OUTPUT ###
+hacbook:08/10/2020 21:47:31 -> Beginning Log Function Test
+hacbook:08/10/2020 21:51:10 -> Starting Script v1.0
+hacbook:08/10/2020 21:51:10 -> Script ran out of gas
+hacbook:08/10/2020 21:51:10 -> PING www.google.com (172.217.1.36): 56 data bytes
+hacbook:08/10/2020 21:51:10 -> 64 bytes from 172.217.1.36: icmp_seq=0 ttl=116 time=32.801 ms
+hacbook:08/10/2020 21:51:11 -> 64 bytes from 172.217.1.36: icmp_seq=1 ttl=116 time=40.646 ms
