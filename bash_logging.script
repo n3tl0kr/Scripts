@@ -18,7 +18,7 @@ function loggy(){
    while read data; do
     TIMESTAMP=$(date '+%d/%m/%Y %H:%M:%S')
     LOG="$LOGDIRlog.log" #CHANGE THIS 
-    echo "$(hostname):$TIMESTAMP -> $data" >> $LOG
+    echo "$(hostname):$TIMESTAMP -> $data" | tee $LOG
   done
 }
 
