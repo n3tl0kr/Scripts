@@ -17,7 +17,7 @@ fi
 function loggy(){
    while read data; do
     TIMESTAMP=$(date '+%d/%m/%Y %H:%M:%S')
-    LOG="$LOGDIR$(date +'%Y%m%d')_smartcard.log" #CHANGE THIS
+    LOG="$LOGDIRlog.log" #CHANGE THIS 
     echo "$(hostname):$TIMESTAMP -> $data" >> $LOG
   done
 }
