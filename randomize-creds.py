@@ -4,6 +4,8 @@
 # Scope:  Used to combine lists of usernames and passwords to create
 #         random iterations of base64 strings.  Helpful for bruteforcing
 #         http basic auth.
+# Change Log: 
+#     01.21.2025 - Optimized workflow and logic for speed
 ############################################################################
 
 import argparse
